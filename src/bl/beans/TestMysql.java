@@ -7,13 +7,17 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistryBuilder;
 
 public class TestMysql {
     public static void main(String[] args) {
 
         try {
-            SessionFactory sf = new Configuration().configure().buildSessionFactory();
-            Session session = sf.openSession();
+            Configuration cfg = new Configuration();
+            cfg.configure();
+            SessionFactory sessionFactory = cfg.buildSessionFactory(new ServiceRegistryBuilder()
+            .applySettings(cfg.getProperties()).buildServiceRegistry());         
+            Session session = sessionFactory.openSession();
 
             Transaction tx = session.beginTransaction();
             User user = new User();
