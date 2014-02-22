@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="bl.beans.User" table="user" catalog="web">
+		<id name="Id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="identity" />
+		</id>
+		<property name="Username" type="java.lang.String">
+			<column name="username" length="16" />
+		</property>
+		<property name="Password" type="java.lang.String">
+			<column name="password" length="16" />
+		</property>
+		<property name="Email" type="java.lang.String">
+			<column name="email" length="32" />
+		</property>
+		<property name="CreateTime" type="java.sql.Timestamp">
+			<column name="createtime" sql-type="datetime"/>
+		</property>
+		<property name="ModifyTime" type="java.sql.Timestamp">
+			<column name="modifytime" sql-type="datetime"/>
+		</property>
+	</class>
+</hibernate-mapping>

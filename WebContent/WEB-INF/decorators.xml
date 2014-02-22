@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<decorators defaultdir="/">
+	<!-- 此处用来定义不需要过滤的页面 -->
+	<excludes>
+		<pattern>/login/*</pattern>
+		<pattern>/pages/generalError.jsp</pattern>
+		<pattern>/pages/menu_loginout/*</pattern>
+		<pattern>/panel/*.html</pattern>
+	</excludes>
+
+	<!-- 用来定义装饰器要过滤的页面 -->
+	<decorator name="main" page="/pages/decorators/main.jsp">
+		<pattern>/index.jsp</pattern>
+		<pattern>/template/dynamicform.action</pattern>
+		<pattern>/page/*.action</pattern>
+        <pattern>/datainput/data*.action</pattern>
+	</decorator>
+</decorators>  
