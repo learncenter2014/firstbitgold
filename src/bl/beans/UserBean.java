@@ -1,6 +1,10 @@
 package bl.beans;
 
-public class User extends Bean {
+/**
+ * Created by pli on 14-7-14.
+ */
+
+public class UserBean extends Bean {
     private String username;
     private String password;
     private String email;

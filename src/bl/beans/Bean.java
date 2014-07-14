@@ -6,9 +6,17 @@ import bl.common.BeanContext;
 
 public class Bean implements BeanContext, Cloneable {
     long id;
-
+    String name;
     Timestamp createTime;
     Timestamp modifyTime;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public long getId() {
         return id;

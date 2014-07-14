@@ -1,10 +1,12 @@
-create database if not exists `web`;
-USE `myproject`;
+CREATE DATABASE IF NOT EXISTS `web`;
+USE `web`;
 DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user` (           
-               `ID` int(8) NOT NULL auto_increment,
-               `username` varchar(16) default NULL,
-               `password` varchar(16) default NULL,
-               `email` varchar(32) default NULL,    
-               PRIMARY KEY (`ID`)                  
-             ) ENGINE=InnoDB DEFAULT CHARSET=UTF-8;  
+CREATE TABLE `user` (
+  `ID`       INT(8) NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(16) DEFAULT NULL,
+  `password` VARCHAR(16) DEFAULT NULL,
+  `email`    VARCHAR(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+)
+  ENGINE =InnoDB
+  DEFAULT CHARSET =UTF8;
