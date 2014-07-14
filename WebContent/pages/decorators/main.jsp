@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="dynamic manager technique">
-    <meta name="author" content="LiLimin,GuDong,WangRonghua">
+    <meta name="author" content="peterli">
     <meta name="keyword" content="dynamicform,template">
     <title>IP地址管理系统</title>
 
