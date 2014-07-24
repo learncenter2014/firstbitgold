@@ -10,11 +10,14 @@ import javax.servlet.ServletContextListener;
 import org.apache.commons.beanutils.BeanUtilsBean;
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.beanutils.Converter;
+
 import util.NullAwareBeanUtilsBean;
 import util.ServerContext;
 
 import com.opensymphony.xwork2.util.logging.Logger;
 import com.opensymphony.xwork2.util.logging.LoggerFactory;
+
+import dao.MysqlHibernateDao;
 
 public class WebInitListener implements ServletContextListener {
     protected static Logger LOG = LoggerFactory.getLogger(WebInitListener.class);
@@ -45,7 +48,9 @@ public class WebInitListener implements ServletContextListener {
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        LOG.info("destroy firstbitgold war");
+        MysqlHibernateDao.closFactory();
+        LOG.info("destroy gold war");
+        MysqlHibernateDao.closFactory();
     }
 
     static class MyDateConvert implements Converter {

@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <%@ include file="pages/commonHeader.jsp"%>
 <html lang="en">
-<head><title>IP地址管理主页</title></head>
+<head><title>IP management system</title></head>
   <body>
-    <h4 align="center">欢迎使用IP地址管理系统</h4>
+    <h4 align="center">Welcome to this IP management system</h4>
     <!--script for this page-->
   <script>
-  
-      $(document).ready(function() {
-          
-      });
-
+     window.location.href = "<%=request.getContextPath()%>/index.action";
   </script>
 
   </body>

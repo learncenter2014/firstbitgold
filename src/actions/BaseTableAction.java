@@ -3,23 +3,24 @@
  */
 package actions;
 
-import bl.common.TableBusinessInterface;
-import com.opensymphony.xwork2.ModelDriven;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 import net.sf.json.util.CycleDetectionStrategy;
 import vo.table.TableDataVo;
 import vo.table.TableInitVo;
 import vo.table.TableQueryVo;
+import bl.common.TableBusinessInterface;
 
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
+import com.opensymphony.xwork2.ModelDriven;
 
 /**
  * Base Table Action
  *
  * @author pli
- * @since $Date:2014-02-20$
+ * @since $Date:2014-07-16$
  */
 public abstract class BaseTableAction<B extends TableBusinessInterface> extends BaseAction implements ModelDriven<TableQueryVo> {
 

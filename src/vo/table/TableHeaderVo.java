@@ -10,7 +10,7 @@ import java.util.Date;
  * Table Header, map property <b>Column</b> of <b>dataTable</b>
  *
  * @author pli
- * @since $Date:2014-02-16$
+ * @since $Date:2014-07-16$ 
  */
 public class TableHeaderVo {
 
@@ -98,8 +98,9 @@ public class TableHeaderVo {
     return bSortable;
   }
 
-  public void setbSortable(boolean bSortable) {
+  public TableHeaderVo setbSortable(boolean bSortable) {
     this.bSortable = bSortable;
+    return this;
   }
 
   public boolean isbSearchable() {
@@ -195,7 +196,7 @@ public class TableHeaderVo {
                 sb.append(this.searchOptions[1][i]);
                 sb.append("';}");
             }
-            sb.append("}");
+            sb.append("return '';}");
             return sb.toString();
         }
         return null;

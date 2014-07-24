@@ -3,25 +3,28 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="bl.beans.User" table="user" catalog="web">
+	<class name="bl.beans.UserBean" table="user_info">
 		<id name="Id" type="java.lang.Long">
-			<column name="id" />
+			<column name="userid" />
 			<generator class="identity" />
 		</id>
-		<property name="Username" type="java.lang.String">
-			<column name="username" length="16" />
+		<property name="Name" type="java.lang.String">
+			<column name="user" length="100" />
 		</property>
 		<property name="Password" type="java.lang.String">
-			<column name="password" length="16" />
+			<column name="password" length="100" />
+		</property>
+		<property name="Ugroup" type="java.lang.Integer">
+			<column name="ugroup" length="16" />
 		</property>
 		<property name="Email" type="java.lang.String">
-			<column name="email" length="32" />
+			<column name="email" length="100" />
 		</property>
-		<property name="CreateTime" type="java.sql.Timestamp">
-			<column name="createtime" sql-type="datetime"/>
+		<property name="Location" type="java.lang.String">
+			<column name="location" length="100" />
 		</property>
-		<property name="ModifyTime" type="java.sql.Timestamp">
-			<column name="modifytime" sql-type="datetime"/>
+		<property name="Comments" type="java.lang.String">
+			<column name="comments" length="255" />
 		</property>
 	</class>
 </hibernate-mapping>

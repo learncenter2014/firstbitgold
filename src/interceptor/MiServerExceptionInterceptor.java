@@ -11,13 +11,15 @@ import com.opensymphony.xwork2.util.logging.Logger;
 import com.opensymphony.xwork2.util.logging.LoggerFactory;
 
 /**
- * this Interceptor mainly focus on business exception that is inherited with {@link bl.exceptions.MiServerException}
+ * this Interceptor mainly focus on business exception that is inherited with
+ * {@link bl.exceptions.MiServerException}
  * 
  * @author peter
  * 
  */
 public class MiServerExceptionInterceptor extends AbstractInterceptor {
-    protected static Logger LOG = LoggerFactory.getLogger(MiServerExceptionInterceptor.class);
+    private static Logger LOG = LoggerFactory.getLogger(MiServerExceptionInterceptor.class);
+
     private static final long serialVersionUID = 6781679050585317814L;
 
     @Override
@@ -33,7 +35,7 @@ public class MiServerExceptionInterceptor extends AbstractInterceptor {
                 invocation.getStack().setValue(WebappsConstants.CTX_TOKEN_ERROR_MSG_REQUEST, errorMessage);
                 return as.INPUT;
             } else {
-                LOG.error("This action exception is: #0", e);
+                LOG.error("This action exception is: {}", e);
                 throw new WrappedRuntimeException(e);
             }
         }

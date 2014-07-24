@@ -7,7 +7,7 @@
     <meta name="description" content="dynamic manager technique">
     <meta name="author" content="peterli">
     <meta name="keyword" content="dynamicform,template">
-    <title>IP地址管理系统</title>
+    <title>IP Management</title>
 
     <link rel="shortcut icon" href="${rootPath}/jslib/flatlab/img/favicon.png">
 
@@ -80,6 +80,6 @@
   </section>
       <!--common script for all pages-->
       <script src="${rootPath}/jslib/flatlab/js/common-scripts.js"></script>
-      <div id="dialog_message" title="系统消息区"></div>
+      <div id="dialog_message" title="system message"></div>
   </body>
 </html>

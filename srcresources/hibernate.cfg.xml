@@ -3,28 +3,31 @@
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-
 	<session-factory>
 		<!-- Database connection settings -->
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="connection.url">jdbc:mysql://127.0.0.1:3306/web</property>
 		<property name="connection.username">root</property>
 		<property name="connection.password">root</property>
-
 		<!-- JDBC connection pool (use the built-in) -->
-		<property name="connection.pool_size">1</property>
-
+		<property name="connection.pool_size">20</property>
 		<!-- SQL dialect -->
 		<property name="dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
-
 		<!-- Enable Hibernate's automatic session context management -->
 		<property name="current_session_context_class">thread</property>
-
 		<!-- Echo all executed SQL to stdout -->
 		<property name="show_sql">true</property>
-
-		<!-- Drop and re-create the database schema on startup -->
-		<property name="hbm2ddl.auto">update</property>
 		<mapping resource="mapping/user.hbm.xml" />
+		<mapping resource="mapping/usergroup.hbm.xml" />
+		<mapping resource="mapping/devmodeldict.hbm.xml" />
+		<mapping resource="mapping/devtypedict.hbm.xml" />
+		<mapping resource="mapping/iptagdict.hbm.xml" />
+		<mapping resource="mapping/projectdict.hbm.xml" />
+		<mapping resource="mapping/subnetdict.hbm.xml" />
+		<mapping resource="mapping/deviceinfo.hbm.xml" />
+		<mapping resource="mapping/ipinfo.hbm.xml" />
+		<mapping resource="mapping/poolinfo.hbm.xml" />
+		<mapping resource="mapping/vmminfo.hbm.xml" />
+		<mapping resource="mapping/subnetinfo.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

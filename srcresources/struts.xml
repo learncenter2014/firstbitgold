@@ -4,39 +4,168 @@
     "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-
 	<constant name="struts.devMode" value="false" />
 	<constant name="struts.ui.theme" value="simple" />
 	<constant name="struts.i18n.encoding" value="UTF-8" />
 	<constant name="struts.custom.i18n.resources" value="resources/LocaleStrings" />
-
 	<package name="default" namespace="/" extends="struts-default">
 		<default-action-ref name="index" />
 		<global-results>
 			<result name="error">/pages/generalError.jsp</result>
-            <result name="tableIndex">/pages/table/tableIndex.jsp</result>
+			<result name="tableIndex">/pages/table/tableIndex.jsp</result>
+			<result name="login_failure" type="redirectAction">logout.action</result>
 		</global-results>
 		<global-exception-mappings>
 			<exception-mapping exception="java.lang.Exception" result="error" />
 		</global-exception-mappings>
+		
+		<action name="login" class="actions.UserAction" method="login">
+			<interceptor-ref name="noLoginStack">
+			</interceptor-ref>
+			<result name="success" type="redirectAction">index</result>
+		</action>
+		<action name="logout" class="actions.UserAction" method="logout">
+			<interceptor-ref name="noLoginStack">
+			</interceptor-ref>
+			<result name="success" type="redirect">/pages/menu_loginout/login.jsp</result>
+		</action>
+		<action name="index" class="actions.DashBoardAction" method="getAllData">
+			<result name="success">/pages/dashboard/dashboard.jsp</result>
+		</action>
 	</package>
-
-    <package name="user" namespace="/user" extends="default">
-        <action name="index" class="actions.UserAction" method="index"/>
-        <action name="initTable" class="actions.UserAction" method="initTable"/>
-        <action name="queryTable" class="actions.UserAction" method="queryTable"/>
-        <action name="add" class="actions.UserAction" method="add">
-            <result name="success">/pages/user/userEdit.jsp</result>
-        </action>
-        <action name="edit" class="actions.UserAction" method="edit">
-            <result name="success">/pages/user/userEdit.jsp</result>
-        </action>
-        <action name="save" class="actions.UserAction" method="save">
-            <result name="success" type="redirectAction">/user/index</result>
-        </action>
-        <action name="delete" class="actions.UserAction" method="delete">
-            <result name="success" type="redirectAction">/user/index</result>
-        </action>
-    </package>
 	
+	<package name="user" namespace="/user" extends="default">
+		<action name="index" class="actions.UserAction" method="index"/>
+		<action name="initTable" class="actions.UserAction" method="initTable"/>
+		<action name="queryTable" class="actions.UserAction" method="queryTable"/>
+		<action name="add" class="actions.UserAction" method="add">
+			<result name="success">/pages/user/userEdit.jsp</result>
+		</action>
+		<action name="edit" class="actions.UserAction" method="edit">
+			<result name="success">/pages/user/userEdit.jsp</result>
+		</action>
+		<action name="save" class="actions.UserAction" method="save">
+			<result name="success" type="redirectAction">/user/index</result>
+		</action>
+		<action name="delete" class="actions.UserAction" method="delete">
+			<result name="success" type="redirectAction">/user/index</result>
+		</action>		
+		<action name="changePassword" class="actions.UserAction" method="changePassword">
+		   <result name="success" type="redirectAction"><param name="actionName">index</param></result>
+		   <result name="failure">/pages/user/changePwd.jsp</result>
+		</action>
+	</package>
+	<package name="usergroup" namespace="/usergroup" extends="default">
+		<action name="index" class="actions.UserGroupAction" method="index"/>
+		<action name="initTable" class="actions.UserGroupAction" method="initTable"/>
+		<action name="queryTable" class="actions.UserGroupAction" method="queryTable"/>
+		<action name="add" class="actions.UserGroupAction" method="add">
+			<result name="success">/pages/usergroup/userGroupEdit.jsp</result>
+		</action>
+		<action name="edit" class="actions.UserGroupAction" method="edit">
+			<result name="success">/pages/usergroup/userGroupEdit.jsp</result>
+		</action>
+		<action name="save" class="actions.UserGroupAction" method="save">
+			<result name="success" type="redirectAction">/usergroup/index</result>
+		</action>
+		<action name="delete" class="actions.UserGroupAction" method="delete">
+			<result name="success" type="redirectAction">/usergroup/index</result>
+		</action>
+	</package>
+	<package name="devicemodel" namespace="/devicemodel" extends="default">
+		<action name="index" class="actions.DeviceModelAction" method="index"/>
+		<action name="initTable" class="actions.DeviceModelAction" method="initTable"/>
+		<action name="queryTable" class="actions.DeviceModelAction" method="queryTable"/>
+		<action name="add" class="actions.DeviceModelAction" method="add">
+			<result name="success">/pages/devicemodel/devicemodelEdit.jsp</result>
+		</action>
+		<action name="edit" class="actions.DeviceModelAction" method="edit">
+			<result name="success">/pages/devicemodel/devicemodelEdit.jsp</result>
+		</action>
+		<action name="save" class="actions.DeviceModelAction" method="save">
+			<result name="success" type="redirectAction">/devicemodel/index</result>
+		</action>
+		<action name="delete" class="actions.DeviceModelAction" method="delete">
+			<result name="success" type="redirectAction">/devicemodel/index</result>
+		</action>
+	</package>
+	<package name="devicetype" namespace="/devicetype" extends="default">
+		<action name="index" class="actions.DeviceTypeAction" method="index"/>
+		<action name="initTable" class="actions.DeviceTypeAction" method="initTable"/>
+		<action name="queryTable" class="actions.DeviceTypeAction" method="queryTable"/>
+		<action name="add" class="actions.DeviceTypeAction" method="add">
+			<result name="success">/pages/devicetype/devicetypeEdit.jsp</result>
+		</action>
+		<action name="edit" class="actions.DeviceTypeAction" method="edit">
+			<result name="success">/pages/devicetype/devicetypeEdit.jsp</result>
+		</action>
+		<action name="save" class="actions.DeviceTypeAction" method="save">
+			<result name="success" type="redirectAction">/devicetype/index</result>
+		</action>
+		<action name="delete" class="actions.DeviceTypeAction" method="delete">
+			<result name="success" type="redirectAction">/devicetype/index</result>
+		</action>
+	</package>
+	<package name="iptag" namespace="/iptag" extends="default">
+		<action name="index" class="actions.IpTagAction" method="index"/>
+		<action name="initTable" class="actions.IpTagAction" method="initTable"/>
+		<action name="queryTable" class="actions.IpTagAction" method="queryTable"/>
+		<action name="add" class="actions.IpTagAction" method="add">
+			<result name="success">/pages/iptag/iptagEdit.jsp</result>
+		</action>
+		<action name="edit" class="actions.IpTagAction" method="edit">
+			<result name="success">/pages/iptag/iptagEdit.jsp</result>
+		</action>
+		<action name="save" class="actions.IpTagAction" method="save">
+			<result name="success" type="redirectAction">/iptag/index</result>
+		</action>
+		<action name="delete" class="actions.IpTagAction" method="delete">
+			<result name="success" type="redirectAction">/iptag/index</result>
+		</action>
+	</package>
+	<package name="project" namespace="/project" extends="default">
+		<action name="index" class="actions.ProjectAction" method="index"/>
+		<action name="initTable" class="actions.ProjectAction" method="initTable"/>
+		<action name="queryTable" class="actions.ProjectAction" method="queryTable"/>
+		<action name="add" class="actions.ProjectAction" method="add">
+			<result name="success">/pages/project/projectEdit.jsp</result>
+		</action>
+		<action name="edit" class="actions.ProjectAction" method="edit">
+			<result name="success">/pages/project/projectEdit.jsp</result>
+		</action>
+		<action name="save" class="actions.ProjectAction" method="save">
+			<result name="success" type="redirectAction">/project/index</result>
+		</action>
+		<action name="delete" class="actions.ProjectAction" method="delete">
+			<result name="success" type="redirectAction">/project/index</result>
+		</action>
+	</package>
+	<package name="subnet" namespace="/subnet" extends="default">
+		<action name="index" class="actions.SubNetAction" method="index"/>
+		<action name="initTable" class="actions.SubNetAction" method="initTable"/>
+		<action name="queryTable" class="actions.SubNetAction" method="queryTable"/>
+		<action name="add" class="actions.SubNetAction" method="add">
+			<result name="success">/pages/subnet/subnetEdit.jsp</result>
+		</action>
+		<action name="edit" class="actions.SubNetAction" method="edit">
+			<result name="success">/pages/subnet/subnetEdit.jsp</result>
+		</action>
+		<action name="save" class="actions.SubNetAction" method="save">
+			<result name="success" type="redirectAction">/subnet/index</result>
+		</action>
+		<action name="delete" class="actions.SubNetAction" method="delete">
+			<result name="success" type="redirectAction">/subnet/index</result>
+		</action>
+	</package>
+	<package name="deviceinfo" namespace="/deviceinfo" extends="default">
+		<action name="index" class="actions.DeviceInfoAction" method="index"/>
+		<action name="initTable" class="actions.DeviceInfoAction" method="initTable"/>
+		<action name="queryTable" class="actions.DeviceInfoAction" method="queryTable"/>
+	</package>
+	
+	<package name="ovmip" namespace="/ovmip" extends="default">
+		<action name="init" class="actions.OvmIpAction" method="init">
+			<result name="input">/pages/ovmip/ovmipinit.jsp</result>
+		</action>
+	</package>	
 </struts>

@@ -5,16 +5,35 @@ package bl.beans;
  */
 
 public class UserBean extends Bean {
-    private String username;
+    private int ugroup;
+    private String Location;
+    private String Comments;
     private String password;
     private String email;
 
-    public String getUsername() {
-        return username;
+
+    public int getUgroup() {
+        return ugroup;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUgroup(int ugroup) {
+        this.ugroup = ugroup;
+    }
+
+    public String getLocation() {
+        return Location;
+    }
+
+    public void setLocation(String location) {
+        Location = location;
+    }
+
+    public String getComments() {
+        return Comments;
+    }
+
+    public void setComments(String comments) {
+        Comments = comments;
     }
 
     public String getPassword() {
