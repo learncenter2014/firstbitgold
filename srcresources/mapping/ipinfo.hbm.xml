@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="bl.beans.IpInfoBean" table="ip_info">
+		<id name="Id" type="java.lang.Long">
+			<column name="ipid" />
+			<generator class="identity" />
+		</id>
+		<many-to-one name="Tag" class="bl.beans.IpTagBean" unique="true" column="tag" lazy="false"/>
+		<property name="Ip" type="java.lang.String">
+			<column name="ip" length="40"/>
+		</property>
+		<many-to-one name="SubnetInfo" class="bl.beans.SubNetInfoBean" unique="true" column="subnet" lazy="false"/>
+		<property name="Comments" type="java.lang.String">
+			<column name="comments"/>
+		</property>
+	</class>
+</hibernate-mapping>

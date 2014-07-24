@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="bl.beans.DeviceTypeBean" table="devtype_dict">
+		<id name="Id" type="java.lang.Long">
+			<column name="devtype" />
+			<generator class="identity" />
+		</id>
+		<property name="Name" type="java.lang.String">
+			<column name="typename" length="100" />
+		</property>
+	</class>
+</hibernate-mapping>

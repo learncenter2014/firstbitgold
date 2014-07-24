@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="bl.beans.SubNetInfoBean" table="subnet_info">
+		<id name="Id" type="java.lang.Long">
+			<column name="subnetid" />
+			<generator class="identity" />
+		</id>
+		<property name="Subnet" type="java.lang.String">
+			<column name="subnet" length="40"/>
+		</property>
+		<many-to-one name="Subtype" class="bl.beans.SubNetBean" unique="true" column="subtype" lazy="false"/>
+		<property name="Gateway" type="java.lang.String">
+			<column name="gateway"/>
+		</property>
+		<property name="Board" type="java.lang.String">
+			<column name="board"/>
+		</property>
+		<property name="Netmask" type="java.lang.String">
+			<column name="netmask"/>
+		</property>
+		<property name="Ipcount" type="java.lang.Integer">
+			<column name="ipcount"/>
+		</property>
+		<property name="Vlan" type="java.lang.String">
+			<column name="vlan"/>
+		</property>
+		<property name="Addrtype" type="java.lang.Integer">
+			<column name="addrtype"/>
+		</property>
+		<property name="Comments" type="java.lang.String">
+			<column name="comments"/>
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="bl.beans.PoolInfoBean" table="pool_info">
+		<id name="Id" type="java.lang.Long">
+			<column name="poolid" />
+			<generator class="identity" />
+		</id>
+		<property name="Name" type="java.lang.String">
+			<column name="poolname" length="100"/>
+		</property>
+		<property name="Vmmid" type="java.lang.Integer">
+			<column name="vmmid"/>
+		</property>
+		<property name="Comments" type="java.lang.String">
+			<column name="comments"/>
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="bl.beans.VmmInfoBean" table="vmm_info">
+		<id name="Id" type="java.lang.Long">
+			<column name="vmmid" />
+			<generator class="identity" />
+		</id>
+		<property name="Vmmip" type="java.lang.String">
+			<column name="vmmip" length="40"/>
+		</property>
+		<property name="Vmmuser" type="java.lang.String">
+			<column name="vmmuser"/>
+		</property>
+		<property name="Vmmpass" type="java.lang.String">
+			<column name="vmmpass"/>
+		</property>
+		<property name="Comments" type="java.lang.String">
+			<column name="comments"/>
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,4 @@
+<script>
+	options = {};
+	operationButtons = [];
+</script>

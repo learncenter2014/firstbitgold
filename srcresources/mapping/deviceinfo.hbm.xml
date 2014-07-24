@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="bl.beans.DeviceInfoBean" table="device_info">
+		<id name="Id" type="java.lang.Long">
+			<column name="devid" />
+			<generator class="identity" />
+		</id>
+		<property name="Name" type="java.lang.String">
+			<column name="devname" length="100"/>
+		</property>
+		<many-to-one name="Devtype" class="bl.beans.DeviceTypeBean" unique="true" column="devtype" lazy="false"/>
+		<property name="Devmodel" type="java.lang.Integer">
+			<column name="devmodel"/>
+		</property>
+		<property name="Poolid" type="java.lang.Integer">
+			<column name="poolid"/>
+		</property>
+		<property name="rack" type="java.lang.Integer">
+			<column name="rack"/>
+		</property>
+		<property name="slot" type="java.lang.Integer">
+			<column name="slot"/>
+		</property>
+		<property name="userid" type="java.lang.Integer">
+			<column name="userid"/>
+		</property>
+		<property name="project" type="java.lang.Integer">
+			<column name="project"/>
+		</property>
+		<property name="Comments" type="java.lang.String">
+			<column name="comments"/>
+		</property>
+		<set name="IpInfos" table="ip_map" lazy="false">
+			<key column="devid" />
+			<many-to-many class="bl.beans.IpInfoBean" column="ipid" />
+		</set>
+	</class>
+</hibernate-mapping>
